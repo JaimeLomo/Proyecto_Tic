@@ -42,7 +42,7 @@ Tecnología ligera que comparte el kernel del host pero aísla procesos.
 
 | Componente | Especificaciones |
 |-----------|------------------|
-| **Host** | Windows 10/11, 16GB RAM, Intel i5/i7 |
+| **Host** | Windows 10/11, 16GB RAM, Ryzen 7 |
 | **VM (VirtualBox)** | Ubuntu 22.04, 4GB RAM, 2 vCPUs |
 | **Docker** | Imagen `python:3.10-slim`, 2 CPUs asignadas |
 | **Aplicación** | Servidor Pacman (Python HTTP) |
@@ -51,31 +51,25 @@ Tecnología ligera que comparte el kernel del host pero aísla procesos.
 
 ## 📂 Estructura del Proyecto
 
-PROYECTO_TIC/
-├── pacman/
-│ ├── vm_vs_docker_benchmark/
-│ │ ├── 📊 notebooks/
-│ │ │ ├── pacman_benchmark_comparison.ipynb # Análisis con gráficos
-│ │ │ └── vm_vs_docker_comparison.ipynb # Visualización de datos
-│ │ ├── 📁 results/
-│ │ │ ├── benchmark_pacman_docker.csv # Datos Docker
-│ │ │ └── benchmark_pacman_vm.csv # Datos VM
-│ │ ├── 🛠️ scripts/
-│ │ │ ├── benchmark_pacman.py # Script de métricas
-│ │ │ ├── docker_setup.sh # Config Docker
-│ │ │ └── vm_setup_windows.sh # Config VM
-│ │ ├── 🐋 Dockerfile # Imagen Docker
-│ │ └── ⚡ run_benchmark.sh # Ejecución automática
-├── 📚 docs/
-│ ├── presentacion.md # Resumen ejecutivo
-│ └── memoria_tecnica.pdf # Detalles técnicos
-└── 📌 README.md # Guía del proyecto
-
-yaml
-Copiar
-Editar
-
----
+PROYECTO_TIC/  
+├── pacman/  
+│   ├── vm_vs_docker_benchmark/  
+│   │   ├── 📊 notebooks/  
+│   │   │   ├── pacman_benchmark_comparison.ipynb  # Análisis con gráficos  
+│   │   │   └── vm_vs_docker_comparison.ipynb      # Visualización de datos  
+│   │   ├── 📁 results/  
+│   │   │   ├── benchmark_pacman_docker.csv        # Datos Docker  
+│   │   │   └── benchmark_pacman_vm.csv            # Datos VM  
+│   │   ├── 🛠️ scripts/  
+│   │   │   ├── benchmark_pacman.py                # Script de métricas  
+│   │   │   ├── docker_setup.sh                    # Config Docker  
+│   │   │   └── vm_setup_windows.sh                # Config VM  
+│   │   ├── 🐋 Dockerfile                          # Imagen Docker  
+│   │   └── ⚡ run_benchmark.sh                    # Ejecución automática  
+├── 📚 docs/  
+│   ├── presentacion.md                           # Resumen ejecutivo  
+│   └── memoria_tecnica.pdf                       # Detalles técnicos  
+└── 📌 README.md                                  # Guía del proyecto  
 
 ## 📊 Métricas Evaluadas
 
@@ -101,7 +95,8 @@ bash
 Copiar
 Editar
 # Ejecuta ambos tests (VM y Docker)
-./scripts/run_benchmark.sh
+./scripts/benchmark_pacman.py # Para Docker
+./scripts/benchmark_pacman.py --vm # Para VM
 3. 🎮 Iniciar Servidor Pacman
 bash
 Copiar
