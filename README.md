@@ -90,17 +90,13 @@ El script `benchmark_pacman.py` mide:
 # Instalar dependencias (solo una vez)
 ./scripts/docker_setup.sh       # Para Docker
 ./scripts/vm_setup_windows.sh   # Para VM
-2. ⏱️ Ejecutar Benchmark
+### 2. ⏱️ Ejecutar Benchmark
 bash
-Copiar
-Editar
 # Ejecuta ambos tests (VM y Docker)
 ./scripts/benchmark_pacman.py # Para Docker
 ./scripts/benchmark_pacman.py --vm # Para VM
-3. 🎮 Iniciar Servidor Pacman
+### 3. 🎮 Iniciar Servidor Pacman
 bash
-Copiar
-Editar
 cd pacman_game
 python -m http.server 8000
 🔗 Abrir en navegador: http://localhost:8000
