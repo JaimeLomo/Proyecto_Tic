@@ -84,22 +84,22 @@ El script `benchmark_pacman.py` mide:
 
 ## 🚀 Cómo Ejecutar el Proyecto
 
-### 1. 🔄 Configuración Inicial
-
-```bash
-# Instalar dependencias (solo una vez)
-./scripts/docker_setup.sh       # Para Docker
-./scripts/vm_setup_windows.sh   # Para VM
-### 2. ⏱️ Ejecutar Benchmark
+1. 🔄 Configuración Inicial
 bash
-# Ejecuta ambos tests (VM y Docker)
-./scripts/benchmark_pacman.py # Para Docker
-./scripts/benchmark_pacman.py --vm # Para VM
-### 3. 🎮 Iniciar Servidor Pacman
+# Instalar dependencias (solo una vez)  
+./scripts/docker_setup.sh       # Para Docker  
+./scripts/vm_setup_windows.sh   # Para VM  
+2. ⏱️ Ejecutar Benchmark
 bash
-cd pacman_game
-python -m http.server 8000
+# Ejecuta ambos tests (VM y Docker)  
+./scripts/benchmark_pacman.py   # Para Docker
+./scripts/benchmark_pacman.py --vm  # Para VM 
+3. 🎮 Iniciar Servidor Pacman
+bash
+cd pacman_game  
+python -m http.server 8000  
 🔗 Abrir en navegador: http://localhost:8000
+
 
 📈 Resultados y Análisis
 Los datos se guardan en results/ y pueden visualizarse con:
