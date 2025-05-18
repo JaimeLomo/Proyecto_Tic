@@ -123,9 +123,6 @@ CPU (%)	45.2	32.1
 RAM (%)	60.0	48.3
 ⏱️ Tiempo inicio	15s	1.2s
 
-📉 Gráfico comparativo:
-Comparativa CPU (ver notebook)
-
 🔍 Conclusiones
 🐋 Docker es mejor para:
 🚀 Desarrollo rápido
