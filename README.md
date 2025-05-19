@@ -71,10 +71,7 @@ PROYECTO_TIC/
 │   ├── presentacion.md                               # Presentación ejecutiva del proyecto
 │   └── memoria_tecnica.pdf                           # Documentación técnica detallada
 └── README.md                                          # Guía principal del proyecto
-
-
-
----
+```
 
 ## 📊 Métricas Evaluadas
 
