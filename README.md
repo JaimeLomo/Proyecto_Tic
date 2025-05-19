@@ -44,7 +44,6 @@ Tecnología ligera que comparte el kernel del host pero aísla procesos y depend
 
 ## 📂 Estructura del Proyecto
 
-```plaintext
 PROYECTO_TIC/
 ├── pacman/
 │   ├── vm_vs_docker_benchmark/
