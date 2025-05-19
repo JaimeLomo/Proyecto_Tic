@@ -1,148 +1,145 @@
-# 📊 Proyecto de Benchmark: VM vs Docker con Servidor Pacman
+📊 Proyecto de Benchmark: VM vs Docker con Servidor Pacman
+🔍 Introducción
+Este proyecto compara el rendimiento entre una Máquina Virtual (VirtualBox) y un Contenedor Docker, ejecutando un servidor Pacman desarrollado en Python con interfaz web interactiva. El objetivo es evaluar las diferencias en consumo de recursos, rendimiento y facilidad de despliegue entre ambas tecnologías.
 
-Este proyecto compara el rendimiento entre una 🖥️ Máquina Virtual (VirtualBox) y un 🐋 Contenedor Docker, ejecutando un servidor Pacman en Python con interfaz web.
+🖥️ vs 🐋: Comparativa Tecnológica
+Máquinas Virtuales (VM)
+Definición:
+Emulación completa de un sistema operativo que se ejecuta sobre un hipervisor (VirtualBox en este caso).
 
----
+Ventajas:
 
-## ⚡ Tecnologías Comparadas
+🔒 Aislamiento completo y mayor seguridad
 
-### 🖥️ Máquinas Virtuales (VM)
+💻 Capacidad para ejecutar diferentes sistemas operativos
 
-**¿Qué es?**  
-Una VM es un sistema operativo completo que se ejecuta sobre un hipervisor (como VirtualBox).
+🛠️ Entorno ideal para pruebas que requieren kernel personalizado
 
-**✔️ Ventajas:**
-- 🔒 Aislamiento y seguridad elevados  
-- 💻 Compatibilidad con múltiples SO  
-- 🛠️ Ideal para kernels personalizados  
+Desventajas:
 
-**❌ Desventajas:**
-- 🐢 Mayor consumo de recursos (CPU, RAM, disco)  
-- ⏳ Inicio más lento  
+🐢 Mayor consumo de recursos (CPU, RAM, almacenamiento)
 
----
+⏳ Tiempos de arranque más prolongados
 
-### 🐋 Contenedores Docker
+Contenedores Docker
+Definición:
+Tecnología ligera que comparte el kernel del host pero aísla procesos y dependencias.
 
-**¿Qué es?**  
-Tecnología ligera que comparte el kernel del host pero aísla procesos.
+Ventajas:
 
-**✔️ Ventajas:**
-- ⚡ Uso eficiente de recursos  
-- 🚀 Inicio casi instantáneo (~1 segundo)  
-- 📦 Portabilidad y escalabilidad sencilla  
+⚡ Eficiencia extrema en uso de recursos
 
-**❌ Desventajas:**
-- 🔓 Menor aislamiento (kernel compartido)  
-- ⚠️ Limitado a sistemas compatibles  
+🚀 Inicio casi instantáneo (1-2 segundos)
 
----
+📦 Portabilidad absoluta entre sistemas
 
-## 🔧 Entorno de Pruebas
+Desventajas:
 
-| Componente | Especificaciones |
-|-----------|------------------|
-| **Host** | Windows 10/11, 16GB RAM, Ryzen 7 |
-| **VM (VirtualBox)** | Ubuntu 22.04, 4GB RAM, 2 vCPUs |
-| **Docker** | Imagen `python:3.10-slim`, 2 CPUs asignadas |
-| **Aplicación** | Servidor Pacman (Python HTTP) |
+🔓 Menor nivel de aislamiento
 
----
+⚠️ Limitaciones en personalización del sistema
 
-## 📂 Estructura del Proyecto
+⚙️ Entorno de Pruebas
+Componente	Especificaciones Técnicas
+Sistema Host	Windows 11 Pro, AMD Ryzen 7 5800X, 16GB RAM
+Configuración VM	Ubuntu 22.04 LTS, 4GB RAM asignados, 2 vCPUs
+Configuración Docker	Imagen oficial python:3.10-slim, 2 CPUs asignadas
+Aplicación	Servidor HTTP Pacman (Python 3.10)
 
-PROYECTO_TIC/  
-├── pacman/  
-│   ├── vm_vs_docker_benchmark/  
-│   │   ├── 📊 notebooks/  
-│   │   │   ├── pacman_benchmark_comparison.ipynb  # Análisis con gráficos  
-│   │   │   └── vm_vs_docker_comparison.ipynb      # Visualización de datos  
-│   │   ├── 📁 results/  
-│   │   │   ├── benchmark_pacman_docker.csv        # Datos Docker  
-│   │   │   └── benchmark_pacman_vm.csv            # Datos VM  
-│   │   ├── 🛠️ scripts/  
-│   │   │   ├── benchmark_pacman.py                # Script de métricas  
-│   │   │   ├── docker_setup.sh                    # Config Docker  
-│   │   │   └── vm_setup_windows.sh                # Config VM  
-│   │   ├── 🐋 Dockerfile                          # Imagen Docker  
-│   │   └── ⚡ run_benchmark.sh                    # Ejecución automática  
-├── 📚 docs/  
-│   ├── presentacion.md                           # Resumen ejecutivo  
-│   └── memoria_tecnica.pdf                       # Detalles técnicos  
-└── 📌 README.md                                  # Guía del proyecto  
+📂 Estructura del Proyecto
+PROYECTO_TIC/
+├── pacman/
+│   ├── vm_vs_docker_benchmark/
+│   │   ├── notebooks/
+│   │   │   ├── pacman_benchmark_comparison.ipynb  # Análisis comparativo
+│   │   │   └── vm_vs_docker_comparison.ipynb      # Visualización de datos
+│   │   ├── results/
+│   │   │   ├── benchmark_pacman_docker.csv        # Resultados Docker
+│   │   │   └── benchmark_pacman_vm.csv            # Resultados VM
+│   │   ├── scripts/
+│   │   │   ├── benchmark_pacman.py                # Script de medición
+│   │   │   ├── docker_setup.sh                    # Configuración Docker
+│   │   │   └── vm_setup_windows.sh                # Configuración VM
+│   │   ├── Dockerfile                             # Definición de imagen
+│   │   └── run_benchmark.sh                       # Ejecución automatizada
+├── docs/
+│   ├── presentacion.md                            # Resumen ejecutivo
+│   └── memoria_tecnica.pdf                        # Documentación técnica
+└── README.md                                      # Guía principal
 
-## 📊 Métricas Evaluadas
+📊 Métricas Evaluadas
+El sistema de benchmark mide cuatro aspectos clave:
 
-El script `benchmark_pacman.py` mide:
+🖥️ Uso de CPU (%):
+Promedio de utilización del procesador durante la ejecución
 
-- 🖥️ **CPU (%)**: Uso promedio durante la ejecución.  
-- 🧠 **RAM (%)**: Consumo de memoria.  
-- 🌐 **Latencia (bytes)**: Tráfico de red generado.  
-- 💾 **Disco (MB)**: Espacio utilizado.  
+🧠 Consumo de Memoria (%):
+Porcentaje de RAM utilizada por la aplicación
 
----
+🌐 Latencia de Red (bytes):
+Tráfico de red generado durante las pruebas
 
-## 🚀 Cómo Ejecutar el Proyecto
+💾 Uso de Disco (MB):
+Espacio en disco requerido por cada solución
 
-1. 🔄 Configuración Inicial
+🚀 Guía de Implementación
+1. Configuración Inicial
 bash
-# Instalar dependencias (solo una vez)  
-./scripts/docker_setup.sh       # Para Docker  
-./scripts/vm_setup_windows.sh   # Para VM  
-2. ⏱️ Ejecutar Benchmark
-bash
-# Ejecuta ambos tests (VM y Docker)  
-./scripts/benchmark_pacman.py   # Para Docker
-./scripts/benchmark_pacman.py --vm  # Para VM 
-3. 🎮 Iniciar Servidor Pacman
-bash
-cd pacman_game  
-python -m http.server 8000  
-🔗 Abrir en navegador: http://localhost:8000
+# Configurar entorno Docker
+./scripts/docker_setup.sh
 
+# Configurar máquina virtual
+./scripts/vm_setup_windows.sh
+2. Ejecución de Benchmarks
+bash
+# Para Docker (sin parámetros)
+python benchmark_pacman.py
 
-📈 Resultados y Análisis
-Los datos se guardan en results/ y pueden visualizarse con:
+# Para VM (con flag --vm)
+python benchmark_pacman.py --vm
+3. Inicio del Servidor
+bash
+cd pacman_game
+python -m http.server 8000
+Accede al juego en: http://localhost:8000
+
+📈 Análisis de Resultados
+Los datos recopilados se organizan automáticamente en:
+
+results/benchmark_pacman_docker.csv
+
+results/benchmark_pacman_vm.csv
+
+Para visualizar los resultados:
 
 bash
-Copiar
-Editar
 jupyter notebook notebooks/pacman_benchmark_comparison.ipynb
-📌 Ejemplo de Comparativa
-Métrica	VM	Docker
-CPU (%)	45.2	32.1
-RAM (%)	60.0	48.3
-⏱️ Tiempo inicio	15s	1.2s
+Ejemplo de Datos Obtenidos
+Métrica	VirtualBox	Docker	Diferencia
+CPU promedio	45.2%	32.1%	-13.1%
+RAM promedio	60.0%	48.3%	-11.7%
+Tiempo inicio	15s	1.2s	-13.8s
+🔍 Conclusiones Clave
+🐋 Ventajas de Docker
+Eficiencia: 30-40% menos consumo de recursos
 
-🔍 Conclusiones
-🐋 Docker es mejor para:
-🚀 Desarrollo rápido
+Velocidad: Inicio 10x más rápido
 
-⚡ Microservicios y CI/CD
+Portabilidad: Fácil despliegue en cualquier sistema
 
-💡 Entornos con recursos limitados
+🖥️ Ventajas de VirtualBox
+Seguridad: Aislamiento completo del sistema
 
-🖥️ VM es mejor para:
-🔒 Aislamiento completo
+Compatibilidad: Soporte para diferentes kernels
 
-🛠️ Sistemas con kernel personalizado
+Control: Mayor personalización del entorno
 
-📚 Recursos
-Docker Docs
+📚 Recursos Adicionales
+Documentación Oficial de Docker
 
-VirtualBox Manual
+Manual de VirtualBox
 
 Python HTTP Server
 
-🧑‍💻 Autores
-Jaime Lomo
-
-📌 Notas Finales
-Este proyecto demuestra cómo 🐋 Docker ofrece mayor eficiencia, mientras que 🖥️ VM proporciona mejor aislamiento.
-
-❓ ¿Preguntas? ¡Abre un issue en el repositorio!
-
-📜 Licencia: MIT
-🔗 Repositorio: GitHub
-
-🎮 ¡Gracias por leer! 🚀
+👥 Autores
+Jaime Lomo - Desarrollo y benchmarking
