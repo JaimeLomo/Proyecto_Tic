@@ -46,27 +46,23 @@ Tecnología ligera que comparte el kernel del host pero aísla procesos y depend
 
 PROYECTO_TIC/
 ├── pacman/
-│ ├── vm_vs_docker_benchmark/
-│ │ ├── notebooks/
-│ │ │ ├── pacman_benchmark_comparison.ipynb # Análisis comparativo
-│ │ │ └── vm_vs_docker_comparison.ipynb # Visualización de datos
-│ │ ├── results/
-│ │ │ ├── benchmark_pacman_docker.csv # Resultados Docker
-│ │ │ └── benchmark_pacman_vm.csv # Resultados VM
-│ │ ├── scripts/
-│ │ │ ├── benchmark_pacman.py # Script de medición
-│ │ │ ├── docker_setup.sh # Configuración Docker
-│ │ │ └── vm_setup_windows.sh # Configuración VM
-│ │ ├── Dockerfile # Definición de imagen
-│ │ └── run_benchmark.sh # Ejecución automatizada
+│   ├── vm_vs_docker_benchmark/
+│   │   ├── notebooks/
+│   │   │   ├── pacman_benchmark_comparison.ipynb  # Análisis comparativo
+│   │   │   └── vm_vs_docker_comparison.ipynb      # Visualización de datos
+│   │   ├── results/
+│   │   │   ├── benchmark_pacman_docker.csv        # Resultados Docker
+│   │   │   └── benchmark_pacman_vm.csv            # Resultados VM
+│   │   ├── scripts/
+│   │   │   ├── benchmark_pacman.py                # Script de medición
+│   │   │   ├── docker_setup.sh                    # Configuración Docker
+│   │   │   └── vm_setup_windows.sh                # Configuración VM
+│   │   ├── Dockerfile                             # Definición de imagen
+│   │   └── run_benchmark.sh                       # Ejecución automatizada
 ├── docs/
-│ ├── presentacion.md # Resumen ejecutivo
-│ └── memoria_tecnica.pdf # Documentación técnica
-└── README.md # Guía principal
-
-markdown
-Copiar
-Editar
+│   ├── presentacion.md                            # Resumen ejecutivo
+│   └── memoria_tecnica.pdf                        # Documentación técnica
+└── README.md                                      # Guía principal
 
 ## 📊 Métricas Evaluadas
 
