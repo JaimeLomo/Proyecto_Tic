@@ -44,25 +44,27 @@ Tecnología ligera que comparte el kernel del host pero aísla procesos y depend
 
 ## 📂 Estructura del Proyecto
 
+```plaintext
 PROYECTO_TIC/
 ├── pacman/
 │   ├── vm_vs_docker_benchmark/
 │   │   ├── notebooks/
-│   │   │   ├── pacman_benchmark_comparison.ipynb  # Análisis comparativo
-│   │   │   └── vm_vs_docker_comparison.ipynb      # Visualización de datos
+│   │   │   ├── pacman_benchmark_comparison.ipynb     # Análisis comparativo de rendimiento
+│   │   │   └── vm_vs_docker_comparison.ipynb         # Visualización de datos comparativos
 │   │   ├── results/
-│   │   │   ├── benchmark_pacman_docker.csv        # Resultados Docker
-│   │   │   └── benchmark_pacman_vm.csv            # Resultados VM
+│   │   │   ├── benchmark_pacman_docker.csv           # Resultados de ejecución en Docker
+│   │   │   └── benchmark_pacman_vm.csv               # Resultados de ejecución en VM
 │   │   ├── scripts/
-│   │   │   ├── benchmark_pacman.py                # Script de medición
-│   │   │   ├── docker_setup.sh                    # Configuración Docker
-│   │   │   └── vm_setup_windows.sh                # Configuración VM
-│   │   ├── Dockerfile                             # Definición de imagen
-│   │   └── run_benchmark.sh                       # Ejecución automatizada
+│   │   │   ├── benchmark_pacman.py                   # Script principal de medición de rendimiento
+│   │   │   ├── docker_setup.sh                       # Script para configurar entorno en Docker
+│   │   │   └── vm_setup_windows.sh                   # Script para configurar entorno en Máquina Virtual
+│   │   ├── Dockerfile                                # Definición de la imagen Docker
+│   │   └── run_benchmark.sh                          # Script de ejecución automatizada del benchmark
 ├── docs/
-│   ├── presentacion.md                            # Resumen ejecutivo
-│   └── memoria_tecnica.pdf                        # Documentación técnica
-└── README.md                                      # Guía principal
+│   ├── presentacion.md                               # Presentación ejecutiva del proyecto
+│   └── memoria_tecnica.pdf                           # Documentación técnica detallada
+└── README.md                                         # Guía principal del proyecto
+
 
 ## 📊 Métricas Evaluadas
 
