@@ -66,6 +66,7 @@ PROYECTO_TIC/
 │   ├── presentacion.md
 │   └── memoria_tecnica.pdf
 └── README.md
+```plaintext
 
 ## 📊 Métricas Evaluadas
 
