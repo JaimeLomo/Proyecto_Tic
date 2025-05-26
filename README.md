@@ -1,52 +1,46 @@
-# 📊 Proyecto de Benchmark: VM vs Docker con Servidor Pacman
+# 📊 Análisis Comparativo de Rendimiento: Docker vs Máquina Virtual con Servidor Pacman
 
 ## 🔍 Introducción
-Este proyecto compara el rendimiento entre una Máquina Virtual (VirtualBox) y un Contenedor Docker, ejecutando un servidor Pacman desarrollado en Python con interfaz web interactiva. El objetivo es evaluar las diferencias en consumo de recursos, rendimiento y facilidad de despliegue entre ambas tecnologías.
+
+Este proyecto tiene como objetivo principal evaluar el rendimiento relativo entre un entorno basado en **Máquina Virtual (VirtualBox)** y un **contenedor Docker**, ambos utilizados para desplegar un pequeño servidor HTTP que aloja el clásico juego de **Pacman**. El servidor está implementado en Python y expone una interfaz web interactiva.
+
+La comparación se centra en medir indicadores clave de eficiencia y uso de recursos como la CPU, la memoria RAM, los tiempos de arranque y la latencia del servidor, con el fin de identificar cuál tecnología ofrece un entorno más ligero, rápido y escalable para despliegues web sencillos.
 
 ---
 
-## 🖥️ vs 🐋: Comparativa Tecnológica
+## 🖥️ Máquinas Virtuales vs 🐋 Contenedores Docker
 
 ### Máquinas Virtuales (VM)
 
 **Definición:**  
-Emulación completa de un sistema operativo que se ejecuta sobre un hipervisor (VirtualBox en este caso).
+Una Máquina Virtual emula un sistema operativo completo y corre sobre un hipervisor. En este proyecto se ha utilizado VirtualBox para gestionar una VM con Ubuntu 22.04.
 
 **Ventajas:**
-- 🔒 Aislamiento completo y mayor seguridad
-- 💻 Capacidad para ejecutar diferentes sistemas operativos
-- 🛠️ Entorno ideal para pruebas que requieren kernel personalizado
+- Mayor aislamiento y seguridad entre el host y la VM.
+- Posibilidad de ejecutar distintos sistemas operativos en paralelo.
+- Ideal para pruebas que requieren modificación del kernel o acceso profundo al sistema operativo.
 
 **Desventajas:**
-- 🐢 Mayor consumo de recursos (CPU, RAM, almacenamiento)
-- ⏳ Tiempos de arranque más prolongados
+- Consumo elevado de recursos del sistema.
+- Tiempos de arranque y despliegue más largos.
+- Overhead por la virtualización completa del hardware.
+
+---
 
 ### Contenedores Docker
 
 **Definición:**  
-Tecnología ligera que comparte el kernel del host pero aísla procesos y dependencias.
+Los contenedores Docker permiten ejecutar aplicaciones en entornos ligeros que comparten el kernel del sistema anfitrión, lo que reduce significativamente la sobrecarga.
 
 **Ventajas:**
-- ⚡ Eficiencia extrema en uso de recursos
-- 🚀 Inicio casi instantáneo (1-2 segundos)
-- 📦 Portabilidad absoluta entre sistemas
+- Uso más eficiente de recursos como CPU y memoria.
+- Despliegue ultrarrápido (habitualmente inferior a 2 segundos).
+- Portabilidad sencilla entre distintos entornos y sistemas operativos compatibles.
 
 **Desventajas:**
-- 🔓 Menor nivel de aislamiento
-- ⚠️ Limitaciones en personalización del sistema
+- Menor nivel de aislamiento respecto al sistema anfitrión.
+- No permite personalizaciones a bajo nivel del sistema operativo.
 
----
-
-## ⚙️ Entorno de Pruebas
-
-| Componente           | Especificaciones Técnicas                                |
-|----------------------|----------------------------------------------------------|
-| Sistema Host         | Windows 11 Pro, AMD Ryzen 7 5800X, 16GB RAM              |
-| Configuración VM     | Ubuntu 22.04 LTS, 4GB RAM asignados, 2 vCPUs             |
-| Configuración Docker | Imagen oficial `python:3.10-slim`, 2 CPUs asignadas     |
-| Aplicación           | Servidor HTTP Pacman (Python 3.10)                       |
-
----
 
 ## 📂 Estructura del Proyecto
 
@@ -76,83 +70,89 @@ PROYECTO_TIC/
 
 ---
 
-## 📊 Métricas Evaluadas
+## ⚙️ Entorno de Pruebas
 
-El sistema de benchmark mide cuatro aspectos clave:
-
-- 🖥️ **Uso de CPU (%):** Promedio de utilización del procesador durante la ejecución  
-- 🧠 **Consumo de Memoria (%):** Porcentaje de RAM utilizada por la aplicación  
-- 🌐 **Latencia de Red (bytes):** Tráfico de red generado durante las pruebas  
-- 💾 **Uso de Disco (MB):** Espacio en disco requerido por cada solución
+| Componente             | Especificación                                  |
+|------------------------|--------------------------------------------------|
+| Sistema Host           | Windows 11 Pro                                   |
+| Procesador             | AMD Ryzen 7 5800X                                |
+| RAM                    | 16GB DDR4                                        |
+| Tarjeta Gráfica        | NVIDIA RTX 4060                                  |
+| Máquina Virtual        | Ubuntu 22.04, 2 vCPUs, 4GB RAM                   |
+| Contenedor Docker      | python:3.10-slim, 2 CPUs                         |
+| Aplicación             | Servidor HTTP que aloja Pacman en HTML/JS       |
 
 ---
 
-## 🚀 Guía de Implementación
+# 🧪 Cómo Ejecutar el Benchmark
 
-### 1. Configuración Inicial
+## 1. Configuración
 
-```bash
-# Configurar entorno Docker
+### Docker:
+
 ./scripts/docker_setup.sh
 
-# Configurar máquina virtual
-./scripts/vm_setup_windows.sh
-2. Ejecución de Benchmarks
-bash
-Copiar
-Editar
-# Para Docker (sin parámetros)
-python benchmark_pacman.py
+VM:
+---
+./scripts/vm_setup.sh
+---
+2. Ejecución del Benchmark
+Para Docker:
+---
+python scripts/benchmark_pacman.py
+---
+Para VM:
+---
+python scripts/benchmark_pacman.py --vm
+---
+3. Visualización de Resultados
+---
+jupyter notebook notebooks/pacman_benchmark_comparasion.ipynb
+---
+📊 Métricas Analizadas
 
-# Para VM (con flag --vm)
-python benchmark_pacman.py --vm
-3. Inicio del Servidor
-bash
-Copiar
-Editar
-cd pacman_game
-python -m http.server 8000
-Accede al juego en: http://localhost:8000
+Métrica	Descripción
+Uso de CPU (%)	Uso promedio del procesador durante la ejecución
+Consumo de RAM (%)	Porcentaje de memoria utilizado
+Latencia (ms)	Tiempo de respuesta del servidor
+Tiempo de arranque	Tiempo desde el lanzamiento hasta disponibilidad
 
-📈 Análisis de Resultados
-Los datos recopilados se organizan automáticamente en:
+📈 Resultados (Ejemplo)
+Métrica	Docker	VM	Diferencia
+CPU (%)	28.5	45.2	-16.7 %
+RAM (%)	42.7	60.0	-17.3 %
+Latencia (ms)	87	112	-25 ms
+Arranque (s)	1.5	15	-13.5 s
+
+📂 Datos almacenados en:
 
 results/benchmark_pacman_docker.csv
 
 results/benchmark_pacman_vm.csv
 
-Para visualizar los resultados:
-bash
+📚 Requisitos
+Instalar dependencias necesarias:
+---
+pip install -r requirements.txt
+---
+Contenido de requirements.txt:
+---
+nginx
 Copiar
 Editar
-jupyter notebook notebooks/pacman_benchmark_comparison.ipynb
-Ejemplo de Datos Obtenidos
-Métrica	VirtualBox	Docker	Diferencia
-CPU promedio	45.2%	32.1%	-13.1%
-RAM promedio	60.0%	48.3%	-11.7%
-Tiempo inicio	15s	1.2s	-13.8s
+nginx
+psutil
+pandas
+matplotlib
+requests
+---
+🧠 Conclusiones
+Docker proporciona un entorno más eficiente y ligero en términos de uso de CPU y RAM.
 
-🔍 Conclusiones Clave
-🐋 Ventajas de Docker
-Eficiencia: 30-40% menos consumo de recursos
+La latencia es menor y los tiempos de arranque mucho más rápidos en Docker.
 
-Velocidad: Inicio 10x más rápido
+Las Máquinas Virtuales siguen siendo útiles cuando se requiere mayor aislamiento o un sistema operativo distinto.
 
-Portabilidad: Fácil despliegue en cualquier sistema
-
-🖥️ Ventajas de VirtualBox
-Seguridad: Aislamiento completo del sistema
-
-Compatibilidad: Soporte para diferentes kernels
-
-Control: Mayor personalización del entorno
-
-📚 Recursos Adicionales
-Documentación Oficial de Docker
-
-Manual de VirtualBox
-
-Python HTTP Server
-
-👥 Autores
-Jaime Lomo - Desarrollo y benchmarking
+👨‍💻 Autor
+Jaime Lomo
+Grado en Ingeniería Informática

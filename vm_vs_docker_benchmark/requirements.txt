@@ -1,0 +1,4 @@
+notebook
+psutil
+pandas
+matplotlib
