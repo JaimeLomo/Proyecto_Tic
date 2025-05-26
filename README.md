@@ -65,10 +65,7 @@ PROYECTO_TIC/
 │   ├── presentacion.md                               # Presentación ejecutiva del proyecto
 │   └── memoria_tecnica.pdf                           # Documentación técnica detallada
 └── README.md                                          # Guía principal del proyecto
-
-
-
----
+```
 
 ## ⚙️ Entorno de Pruebas
 
@@ -153,6 +150,24 @@ La latencia es menor y los tiempos de arranque mucho más rápidos en Docker.
 
 Las Máquinas Virtuales siguen siendo útiles cuando se requiere mayor aislamiento o un sistema operativo distinto.
 
-👨‍💻 Autor
-Jaime Lomo
-Grado en Ingeniería Informática
+<<<<<<< HEAD
+
+=======
+Portabilidad: Fácil despliegue en cualquier sistema
+
+🖥️ Ventajas de VirtualBox
+Seguridad: Aislamiento completo del sistema
+
+Compatibilidad: Soporte para diferentes kernels
+
+Control: Mayor personalización del entorno
+
+📚 Recursos Adicionales
+Documentación Oficial de Docker
+
+Manual de VirtualBox
+
+Python HTTP Server
+
+👥 Autores
+Jaime Lomo - Desarrollo y benchmarking
