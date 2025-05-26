@@ -84,56 +84,67 @@ PROYECTO_TIC/
 # 🧪 Cómo Ejecutar el Benchmark
 
 ## 1. Configuración
-
+### Pacman
+```
+cd pacman_game
+python -m http.server 8000
+Accede al juego en: http://localhost:8000
+```
 ### Docker:
-
+```
 ./scripts/docker_setup.sh
-
-VM:
----
+```
+### VM:
+```
 ./scripts/vm_setup.sh
----
-2. Ejecución del Benchmark
+```
+Ejecución del Benchmark
 Para Docker:
----
+```
 python scripts/benchmark_pacman.py
----
+```
 Para VM:
----
+```
 python scripts/benchmark_pacman.py --vm
----
-3. Visualización de Resultados
----
+```
+### Visualización de Resultados
+```
 jupyter notebook notebooks/pacman_benchmark_comparasion.ipynb
----
+```
 📊 Métricas Analizadas
-
+---
+```
 Métrica	Descripción
 Uso de CPU (%)	Uso promedio del procesador durante la ejecución
 Consumo de RAM (%)	Porcentaje de memoria utilizado
 Latencia (ms)	Tiempo de respuesta del servidor
 Tiempo de arranque	Tiempo desde el lanzamiento hasta disponibilidad
-
+```
 📈 Resultados (Ejemplo)
+---
+```
 Métrica	Docker	VM	Diferencia
 CPU (%)	28.5	45.2	-16.7 %
 RAM (%)	42.7	60.0	-17.3 %
 Latencia (ms)	87	112	-25 ms
 Arranque (s)	1.5	15	-13.5 s
+```
+<img src="Imagenes/image.png" width="300" height="200"/>    
+<img src="Imagenes/image-1.png" width="300" height="200"/>
 
 📂 Datos almacenados en:
-
-results/benchmark_pacman_docker.csv
-
-results/benchmark_pacman_vm.csv
-
+```
+- results/benchmark_pacman_docker.csv
+- results/benchmark_pacman_vm.csv
+```
 📚 Requisitos
+---
 Instalar dependencias necesarias:
----
+```
 pip install -r requirements.txt
----
+```
 Contenido de requirements.txt:
----
+```
 nginx
 Copiar
 Editar
@@ -142,20 +153,21 @@ psutil
 pandas
 matplotlib
 requests
----
+```
 🧠 Conclusiones
+---
+
 Docker proporciona un entorno más eficiente y ligero en términos de uso de CPU y RAM.
 
 La latencia es menor y los tiempos de arranque mucho más rápidos en Docker.
 
 Las Máquinas Virtuales siguen siendo útiles cuando se requiere mayor aislamiento o un sistema operativo distinto.
 
-<<<<<<< HEAD
-
-=======
 Portabilidad: Fácil despliegue en cualquier sistema
 
+
 🖥️ Ventajas de VirtualBox
+---
 Seguridad: Aislamiento completo del sistema
 
 Compatibilidad: Soporte para diferentes kernels
@@ -163,11 +175,13 @@ Compatibilidad: Soporte para diferentes kernels
 Control: Mayor personalización del entorno
 
 📚 Recursos Adicionales
+---
 Documentación Oficial de Docker
 
 Manual de VirtualBox
 
 Python HTTP Server
 
-👥 Autores
-Jaime Lomo - Desarrollo y benchmarking
+👥 Autor
+---
+Jaime Lomo
